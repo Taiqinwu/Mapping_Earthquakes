@@ -35,7 +35,7 @@ L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
 // Go to where the json file located, and click raw. Copy the link here:
-let airportData = "https://raw.githubusercontent.com/Taiqinwu/Mapping_Earthquakes/majorAirports/majorAirports/majorAirports.json";
+let airportData = "https://raw.githubusercontent.com/Taiqinwu/Mapping_Earthquakes/Mapping_GeoJSON_Points/Mapping_GeoJSON_Points/majorAirports.json";
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {

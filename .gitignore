@@ -7,6 +7,7 @@ __pycache__/
 *.so
 config.js
 .DS_Store
+Mapping_GeoJSON_Linestrings/
 
 # Distribution / packaging
 .Python

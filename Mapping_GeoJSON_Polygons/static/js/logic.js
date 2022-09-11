@@ -25,7 +25,7 @@ let baseMaps = {
 // An alternative to using the setView()method
 let map = L.map("mapid", {
     center: [43.7, -79.3],
-    zoom: 4,
+    zoom: 11,
     layers: [streets]
 });
 
@@ -37,17 +37,19 @@ L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
 // Go to where the json file located, and click raw. Copy the link here:
-let airportData = "https://raw.githubusercontent.com/Taiqinwu/Mapping_Earthquakes/Mapping_GeoJSON_Points/Mapping_GeoJSON_Points/majorAirports.json";
+let airportData = "https://raw.githubusercontent.com/Taiqinwu/Mapping_Earthquakes/Mapping_GeoJSON_Polygons/Mapping_GeoJSON_Polygons/torontoNeighborhoods.json";
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
     console.log(data);
     // Creating a GeoJSON layer with the retrieved data.
     L.geoJSON(data, {
-        // We turn each feature into a marker on the map.
         onEachFeature: function(feature, layer) {
-          console.log(layer);
-          layer.bindPopup("<h4>Airport Code: " + feature.properties.faa + "<h4> <hr> Airport name: " + feature.properties.name + "</h4>");
-        }
+            console.log(layer);
+            layer.bindPopup("<h4>Neighborhood: " + feature.properties.AREA_NAME + "</h4>");
+        }, 
+    weight: 1,
+    color: 'blue',
+    fillColor: 'yellow'
     }).addTo(map);
 })
